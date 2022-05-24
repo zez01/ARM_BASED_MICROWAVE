@@ -48,8 +48,7 @@ unsigned char getkey_real(void)
 	keypad_init() ; 
 	
 	while (1)
-	{
-		
+	{	
 		
 		ch=keypad_getkey();
 		if (ch !=0)break;

@@ -29,6 +29,7 @@ void Check_door(){
 }
 }
 
+
 unsigned char P___S(){
       Check_door(); // pause whenever the door is oppened
 	      SWF = SWF_READ();

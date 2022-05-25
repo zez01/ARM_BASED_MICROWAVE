@@ -20,17 +20,6 @@ int atoi(unsigned char* str)					// atoi is a function to convert an Ascii store
 
 
 
-void count_delay_sec(float x){				// count_delay_sec is a function which receives an integer value in seconds and printed on LCD (counted down) in the shape of timer
- int minute ;
-	 int second;
-	 minute =(int) x/60;
-	 x=x/60;
-	 x-=minute;
-	 x*=60;
-	 second = (int) x;
-  count_down_edit(second ,minute);
- }
-
 void string_shift(unsigned char* str ,int k ){
 	 int i=0;
 		 for(i=0;i<k;i++){

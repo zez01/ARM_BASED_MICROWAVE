@@ -1,3 +1,16 @@
+#include  "Io.h"
+#include "tm4c123gh6pm.h"
+#include "keypad.c"
+#include "macros.c"
+#include "LCD initialization.c"
+#include "Functions.c"
+#include "P___S.c"
+#include "Get_Key_Modified.c"
+//#include "count down .c"
+#include "Part_A.c"
+#include "Part_B.c"
+#include "Part_C.c"
+#include "Part_D.c"
 void SystemInit(void)
 {
 /* Grant coprocessor access */

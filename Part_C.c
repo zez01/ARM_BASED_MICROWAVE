@@ -1,30 +1,36 @@
 void part_C (void){
-unsigned char food []="Chicken weight?";
-unsigned char weight[2];
-unsigned char err[]="Err";
+unsigned char food_c []="Chicken weight?";
+unsigned char weight_c[2];
+unsigned char err_c[]="Err";
+
+
 float x;
-int	min;
+int	min,w;
 int	sec; 
-keypad_init();
-LCD_init();
-LCD_String(food);
-delayMs(2000);
-LCD_command(0x01);
-weight[0] = getkey_real();
+    keypad_init();
+    LCD_init();
+err:LCD_String(food_c);
+    delayMs(2000);
+    LCD_command(0x01);
+    weight_c[0] &=0x0;  
+	  weight_c[0] = getkey_real();
+	  w=atoi(weight_c);
 
 
-while(atoi(weight)<0 || atoi(weight)>9 ){;
-LCD_String(err);
+if( w>9 ){  //error
+LCD_command(0x01);
+LCD_String(err_c);
 delayMs(2000);
 LCD_command(0x01);
-LCD_String(food);
-weight[0] = getkey_real();
-LCD_String(weight);
+
+	goto err ;
 }
-LCD_String(weight);
+
+LCD_String(weight_c);
+delayMs(2000);
 LCD_command(0x01);
 
-x		= atoi(weight)*12;
+x		= atoi(weight_c)*12;
 min	= (int) x/60;
 x	  = x/60;
 x	 -= min;

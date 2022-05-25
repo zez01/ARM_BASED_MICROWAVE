@@ -1,6 +1,7 @@
-
-
-
+  int portf_data(void ){              //return of the swiches 
+	return(GPIO_PORTF_DATA_R&0x11);
+}
+///start function
 
 void part_D(void){
 
@@ -69,7 +70,7 @@ reset:if ((portf_data()&0X10)!= 0x10){   //if sw1 pushed
 				part_D ();
 	}
 }
- else if (k==3){
+ else if (k==3){ //3 input
 	  q =no_in[2]-'0';
 		q+= ( no_in[1]-'0') *10;
 		q+= ( no_in[0]- '0' )*60; //o{
@@ -77,13 +78,13 @@ reset:if ((portf_data()&0X10)!= 0x10){   //if sw1 pushed
 	 count_delay_sec(q);
 	  
  }
-else if (k==2){
+else if (k==2){    //2input
   	q =no_in[1]-'0';
 		q+= ( no_in[0]-'0') *10;	
 	 LCD_command(0x01);
 	count_delay_sec(q);
 }
- else if (k==1){
+ else if (k==1){  //1 input 
 		q =no_in[0]-'0';
 		LCD_command(0x01);
 	 count_delay_sec(q);
@@ -91,5 +92,7 @@ else if (k==2){
 	}
 	else {
 		LCD_String(zeros);
-	}	 
+	}
+
+			 
 	}

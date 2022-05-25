@@ -1,34 +1,32 @@
-
-
-
-
-void part_B (void){						// part_B as declared in the project PDF file
-unsigned char food []="Beef weight?";
-unsigned char weight[2];
-unsigned char err[]="Err";
+void part_B (void){
+unsigned char food_b []="Beef weight?";
+unsigned char weight_b[2];
+unsigned char err_b[]="Err";
 float x;
-int	min;
+int	min,w;
 int	sec; 
-keypad_init();
-LCD_init();
-LCD_String(food);
+    keypad_init();
+    LCD_init();
+err:LCD_String(food_b);
+    delayMs(2000);
+    LCD_command(0x01);
+    weight_b[0] &=0x0;  
+	  weight_b[0] = getkey_real();
+    w=atoi(weight_b);
+
+if( w>9 ){  //error
+LCD_command(0x01);
+LCD_String(err_b);
 delayMs(2000);
 LCD_command(0x01);
-weight[0] = getkey_real();
-
-
-while(atoi(weight)<0 || atoi(weight)>9 ){;
-LCD_String(err);
-delayMs(2000);
-LCD_command(0x01);
-LCD_String(food);
-weight[0] = getkey_real();
-LCD_String(weight);
+goto err ;
 }
-LCD_String(weight);
+
+LCD_String(weight_b);
+delayMs(2000);
 LCD_command(0x01);
 
-x		= atoi(weight)*30;
+x		= atoi(weight_b)*30;
 min	= (int) x/60;
 x	  = x/60;
 x	 -= min;

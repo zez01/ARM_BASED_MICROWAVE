@@ -1,6 +1,34 @@
 	
+	
 char SWF;
 	int currrent_sys;
+
+volatile short SW3;
+//short out; // OUT Should be an output pin
+
+char SWF_READ(){
+  return (GPIO_PORTF_DATA_R & 0x11);
+}
+char SW3_READ(){
+  return (GPIO_PORTA_DATA_R & 0x01);}
+
+	//###################
+char OUT_SW_READ(){ 
+		return (GPIO_PORTA_DATA_R & 0x04); 
+}
+void Check_door(){
+    SW3=OUT_SW_READ() ;
+
+
+ while (SW3==0X00){
+		SW3=OUT_SW_READ() ;
+	 if (SW3!=0x00){
+	 break ;
+	 }
+						// Delay while sw 3 is down for pause & before start (open door) 
+}
+}
+
 unsigned char P___S(){
       Check_door(); // pause whenever the door is oppened
 	      SWF = SWF_READ();

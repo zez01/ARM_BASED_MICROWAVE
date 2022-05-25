@@ -1,6 +1,7 @@
-
-
-
+  int portf_data(void ){              //return of the swiches 
+	return(GPIO_PORTF_DATA_R&0x11);
+}
+///start function
 
 void part_D(void){
 
